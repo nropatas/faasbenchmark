@@ -1,14 +1,15 @@
 package tests
 
 import (
-	"github.com/nuweba/faasbenchmark/config"
-	httpbenchReport "github.com/nuweba/faasbenchmark/report/generate/httpbench"
-	"github.com/nuweba/httpbench"
 	"math"
 	"net/url"
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/nropatas/httpbench"
+	"github.com/nuweba/faasbenchmark/config"
+	httpbenchReport "github.com/nuweba/faasbenchmark/report/generate/httpbench"
 )
 
 func sleepQueryParam(sleep time.Duration) *url.Values {
@@ -37,7 +38,8 @@ func gradualHitGraph(maxConcurrent int, durationIntensity time.Duration) *httpbe
 
 func sendPreWarmup(hfConf *config.HttpFunction, requestsToSend uint64) {
 	newReq := hfConf.Test.Config.Provider.NewFunctionRequest(hfConf.Test.Stack, hfConf.Function, hfConf.HttpConfig.QueryParams, hfConf.HttpConfig.Headers, hfConf.HttpConfig.Body)
-	trace := httpbench.New(newReq, hfConf.HttpConfig.Hook)
+	tlsConfig := hfConf.Test.Config.Provider.TLSConfig()
+	trace := httpbench.New(newReq, hfConf.HttpConfig.Hook, tlsConfig)
 	// we send roughly the same number of concurrent requests as at the peak time of our hits graph test
 	wg := &sync.WaitGroup{}
 	wg.Add(1)

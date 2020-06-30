@@ -1,0 +1,64 @@
+service: sleepfunc
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  sleep-node12-128mb:
+    name: sleep-node12-128mb
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-256mb:
+    name: sleep-node12-256mb
+    description: sleep function 256mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 256
+    annotations:
+      web-export: true
+
+  sleep-node12-512mb:
+    name: sleep-node12-512mb
+    description: sleep function 512mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 512
+    annotations:
+      web-export: true
+
+  sleep-python3-128mb:
+    name: sleep-python3-128mb
+    description: sleep function 128mb
+    runtime: python:3
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-python3-256mb:
+    name: sleep-python3-256mb
+    description: sleep function 256mb
+    runtime: python:3
+    handler: handler.sleep
+    memory: 256
+    annotations:
+      web-export: true
+
+  sleep-python3-512mb:
+    name: sleep-python3-512mb
+    description: sleep function 512mb
+    runtime: python:3
+    handler: handler.sleep
+    memory: 512
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

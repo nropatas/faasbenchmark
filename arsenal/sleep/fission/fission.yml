@@ -1,0 +1,189 @@
+envs:
+  node:
+    env:
+      name: faastest-sleepfunc-node
+      image: fission/node-env
+
+    functions:
+      sleep-node-128mb:
+        name: sleep-node-128mb
+        handler: sleep.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 128
+        maxmemory: 128
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-node-256mb:
+        name: sleep-node-256mb
+        handler: sleep.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 256
+        maxmemory: 256
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-node-512mb:
+        name: sleep-node-512mb
+        handler: sleep.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 512
+        maxmemory: 512
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-node-1024mb:
+        name: sleep-node-1024mb
+        handler: sleep.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 1024
+        maxmemory: 1024
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-node-2048mb:
+        name: sleep-node-2048mb
+        handler: sleep.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 2048
+        maxmemory: 2048
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+  python:
+    env:
+      name: faastest-sleepfunc-python
+      image: fission/python-env
+
+    functions:
+      sleep-python-128mb:
+        name: sleep-python-128mb
+        handler: sleep.py
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 128
+        maxmemory: 128
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-python-256mb:
+        name: sleep-python-256mb
+        handler: sleep.py
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 256
+        maxmemory: 256
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-python-512mb:
+        name: sleep-python-512mb
+        handler: sleep.py
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 512
+        maxmemory: 512
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-python-1024mb:
+        name: sleep-python-1024mb
+        handler: sleep.py
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 1024
+        maxmemory: 1024
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-python-2048mb:
+        name: sleep-python-2048mb
+        handler: sleep.py
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 2048
+        maxmemory: 2048
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+  go:
+    env:
+      name: faastest-sleepfunc-go
+      image: fission/go-env-1.12:1.8.0
+      builder: fission/go-builder-1.12:1.8.0
+
+    functions:
+      sleep-go-128mb:
+        name: sleep-go-128mb
+        handler: sleep.go
+        entrypoint: Handler
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 128
+        maxmemory: 128
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-go-256mb:
+        name: sleep-go-256mb
+        handler: sleep.go
+        entrypoint: Handler
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 256
+        maxmemory: 256
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-go-512mb:
+        name: sleep-go-512mb
+        handler: sleep.go
+        entrypoint: Handler
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 512
+        maxmemory: 512
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-go-1024mb:
+        name: sleep-go-1024mb
+        handler: sleep.go
+        entrypoint: Handler
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 1024
+        maxmemory: 1024
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      sleep-go-2048mb:
+        name: sleep-go-2048mb
+        handler: sleep.go
+        entrypoint: Handler
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 2048
+        maxmemory: 2048
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80

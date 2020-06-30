@@ -2,6 +2,7 @@ service: largecode
 
 provider:
   name: aws
+  region: eu-central-1
   project: faastest
   stage: dev
   versionFunctions: false
@@ -35,9 +36,9 @@ functions:
     handler: nodejs/handler.handler
     memorySize: 1024
 
-  node12-memory-1536:
-    name: largecode-node12-1536mb
-    description: function with a large codebase 1536mb
+  node12-memory-2048:
+    name: largecode-node12-2048mb
+    description: function with a large codebase 2048mb
     runtime: nodejs12.x
     handler: nodejs/handler.handler
-    memorySize: 1536
+    memorySize: 2048

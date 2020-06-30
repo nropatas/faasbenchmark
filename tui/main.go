@@ -2,6 +2,10 @@ package tui
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
+	"sort"
+
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
 	"github.com/nuweba/faasbenchmark/cmd"
@@ -11,9 +15,6 @@ import (
 	"github.com/nuweba/faasbenchmark/report/output/graph"
 	"github.com/nuweba/faasbenchmark/report/output/json"
 	"github.com/nuweba/faasbenchmark/testsuite"
-	"os"
-	"path/filepath"
-	"sort"
 )
 
 func leftTestsMenu() *widgets.List {
@@ -86,7 +87,7 @@ func faasTestConfig(providerName string, resultCh *graphStream) (*config.Global,
 	report := multi.Report(fileReport, graphReport)
 
 	arsenalPath := filepath.Join(dir, TestsDir)
-	gConfig, err := config.NewGlobalConfig(provider, arsenalPath, report, false)
+	gConfig, err := config.NewGlobalConfig(provider, arsenalPath, report, false, nil)
 	if err != nil {
 		return nil, err
 	}

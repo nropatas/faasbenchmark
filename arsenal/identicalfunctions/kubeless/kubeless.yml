@@ -1,0 +1,124 @@
+hostname: example.com
+file: handler.js
+dependencies: package.json
+
+functions:
+  sleep-node12-128mb-1:
+    name: sleep-node12-128mb-1
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-1
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-2:
+    name: sleep-node12-128mb-2
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-2
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-3:
+    name: sleep-node12-128mb-3
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-3
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-4:
+    name: sleep-node12-128mb-4
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-4
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-5:
+    name: sleep-node12-128mb-5
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-5
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-6:
+    name: sleep-node12-128mb-6
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-6
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-7:
+    name: sleep-node12-128mb-7
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-7
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-8:
+    name: sleep-node12-128mb-8
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-8
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-9:
+    name: sleep-node12-128mb-9
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-9
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-128mb-10:
+    name: sleep-node12-128mb-10
+    description: sleep function 128mb
+    runtime: nodejs12
+    handler: handler.sleep
+    path: sleep-node12-128mb-10
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50

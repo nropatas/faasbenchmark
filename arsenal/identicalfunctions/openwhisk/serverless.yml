@@ -1,0 +1,100 @@
+service: identicalfunctions
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  sleep-node12-128mb-1:
+    name: sleep-node12-128mb-1
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-2:
+    name: sleep-node12-128mb-2
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-3:
+    name: sleep-node12-128mb-3
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-4:
+    name: sleep-node12-128mb-4
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-5:
+    name: sleep-node12-128mb-5
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-6:
+    name: sleep-node12-128mb-6
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-7:
+    name: sleep-node12-128mb-7
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-8:
+    name: sleep-node12-128mb-8
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-9:
+    name: sleep-node12-128mb-9
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+  sleep-node12-128mb-10:
+    name: sleep-node12-128mb-10
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

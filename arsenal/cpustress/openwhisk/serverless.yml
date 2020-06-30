@@ -1,0 +1,37 @@
+service: cpustress
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  cpustress-node12-128mb:
+    name: cpustress-node12-128mb
+    description: cpustress function 128mb
+    runtime: nodejs:12
+    handler: handler.cpustress
+    memory: 128
+    annotations:
+      web-export: true
+
+  cpustress-node12-256mb:
+    name: cpustress-node12-256mb
+    description: cpustress function 256mb
+    runtime: nodejs:12
+    handler: handler.cpustress
+    memory: 256
+    annotations:
+      web-export: true
+
+  cpustress-node12-512mb:
+    name: cpustress-node12-512mb
+    description: cpustress function 512mb
+    runtime: nodejs:12
+    handler: handler.cpustress
+    memory: 512
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

@@ -2,7 +2,7 @@ package httpbench
 
 import (
 	"github.com/nuweba/faasbenchmark/config"
-	"github.com/nuweba/httpbench"
+	"github.com/nropatas/httpbench"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"gopkg.in/yaml.v2"

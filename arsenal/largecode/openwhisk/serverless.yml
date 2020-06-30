@@ -1,0 +1,37 @@
+service: largecode
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  largecode-node12-128mb:
+    name: largecode-node12-128mb
+    description: largecode function 128mb
+    runtime: nodejs:12
+    handler: handler.largecode
+    memory: 128
+    annotations:
+      web-export: true
+
+  largecode-node12-256mb:
+    name: largecode-node12-256mb
+    description: largecode function 256mb
+    runtime: nodejs:12
+    handler: handler.largecode
+    memory: 256
+    annotations:
+      web-export: true
+
+  largecode-node12-512mb:
+    name: largecode-node12-512mb
+    description: largecode function 512mb
+    runtime: nodejs:12
+    handler: handler.largecode
+    memory: 512
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

@@ -1,0 +1,17 @@
+{
+    "knative": {
+        "ingress-url": "aed18eb1547d24350a97621f5ecb7253-2043097814.eu-central-1.elb.amazonaws.com"
+    },
+    "openfaas": {
+        "ingress-url": "a950ef19bfde54760b2924e1f63e72f0-35542673.eu-central-1.elb.amazonaws.com:8080"
+    },
+    "openwhisk": {
+        "ingress-url": "a0f22f35c482c4bf3a0f61c06f96a553-1784489288.eu-central-1.elb.amazonaws.com"
+    },
+    "kubeless": {
+        "ingress-url": "a45f549880adf4fe2afbc4c507983f21-140194769.eu-central-1.elb.amazonaws.com"
+    },
+    "fission": {
+        "ingress-url": "ae14c3374353a41cdb611bbc19199ed1-12776679.eu-central-1.elb.amazonaws.com"
+    }
+}

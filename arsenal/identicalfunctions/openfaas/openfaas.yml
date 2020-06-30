@@ -1,0 +1,93 @@
+version: 1.0
+provider:
+  name: openfaas
+functions:
+  sleep-node12-128mb-1:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-2:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-3:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-4:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-5:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-6:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-7:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-8:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-9:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-128mb-10:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50

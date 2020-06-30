@@ -3,12 +3,12 @@ package tui
 import (
 	"errors"
 	"fmt"
-	ui "github.com/gizak/termui/v3"
-	"github.com/gizak/termui/v3/widgets"
-	"github.com/nuweba/faasbenchmark/provider"
 	_ "image/gif"
 	_ "image/jpeg"
 	_ "image/png"
+
+	ui "github.com/gizak/termui/v3"
+	"github.com/gizak/termui/v3/widgets"
 )
 
 func providerGrid(widgetImages []*widgets.Image) *ui.Grid {
@@ -40,10 +40,10 @@ func providerGrid(widgetImages []*widgets.Image) *ui.Grid {
 	grid.Set(
 		ui.NewRow(1.0/6, spacer),
 		ui.NewRow(1.0/6,
-			ui.NewCol(1.0 / 3, spacer),
-			ui.NewCol(1.0 / 3, upperSpacer),
-			ui.NewCol(1.0 / 3, spacer),
-			),
+			ui.NewCol(1.0/3, spacer),
+			ui.NewCol(1.0/3, upperSpacer),
+			ui.NewCol(1.0/3, spacer),
+		),
 		ui.NewRow(1.0/3, col...),
 		ui.NewRow(1.0/3, spacer),
 	)
@@ -51,12 +51,10 @@ func providerGrid(widgetImages []*widgets.Image) *ui.Grid {
 	return grid
 }
 
-
-
 func ChooseProvider() (string, *widgets.Image, error) {
-	//todo: for testing
-	//providers := []string{"aws", "ibm", "google", "azure"}
-	providers := provider.List()
+	// TODO: Add a field specifying if the provider has TUI support and get a list from provider.List() instead
+	providers := []string{"aws", "google", "azure"}
+	// providers := provider.List()
 	images, err := loadImages(providers)
 	if err != nil {
 		fmt.Println(err)

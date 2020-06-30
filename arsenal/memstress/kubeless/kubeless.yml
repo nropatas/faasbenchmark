@@ -1,0 +1,69 @@
+hostname: example.com
+file: handler.js
+dependencies: package.json
+
+functions:
+  memstress-node12-128mb:
+    name: memstress-node12-128mb
+    description: memstress function 128mb
+    runtime: nodejs12
+    handler: handler.memstress
+    path: memstress-node12-128mb
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+    env: "FUNCTION_MEMORY_SIZE=128"
+
+  memstress-node12-256mb:
+    name: memstress-node12-256mb
+    description: memstress function 256mb
+    runtime: nodejs12
+    handler: handler.memstress
+    path: memstress-node12-256mb
+    cpu: 200m
+    memory: 256Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+    env: "FUNCTION_MEMORY_SIZE=256"
+
+  memstress-node12-512mb:
+    name: memstress-node12-512mb
+    description: memstress function 512mb
+    runtime: nodejs12
+    handler: handler.memstress
+    path: memstress-node12-512mb
+    cpu: 200m
+    memory: 512Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+    env: "FUNCTION_MEMORY_SIZE=512"
+
+  memstress-node12-1024mb:
+    name: memstress-node12-1024mb
+    description: memstress function 1024mb
+    runtime: nodejs12
+    handler: handler.memstress
+    path: memstress-node12-1024mb
+    cpu: 200m
+    memory: 1024Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+    env: "FUNCTION_MEMORY_SIZE=1024"
+
+  memstress-node12-2048mb:
+    name: memstress-node12-2048mb
+    description: memstress function 2048mb
+    runtime: nodejs12
+    handler: handler.memstress
+    path: memstress-node12-2048mb
+    cpu: 200m
+    memory: 2048Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+    env: "FUNCTION_MEMORY_SIZE=2048"

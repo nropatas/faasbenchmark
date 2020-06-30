@@ -1,8 +1,8 @@
 package sls
 
 import (
+	"github.com/nropatas/sls"
 	"github.com/nuweba/faasbenchmark/stack"
-	"github.com/nuweba/sls"
 )
 
 type Stack struct {

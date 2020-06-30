@@ -2,8 +2,8 @@ package google
 
 import (
 	"github.com/nuweba/faasbenchmark/report"
-	"github.com/nuweba/httpbench/engine"
-	"github.com/nuweba/httpbench/syncedtrace"
+	"github.com/nropatas/httpbench/engine"
+	"github.com/nropatas/httpbench/syncedtrace"
 	"time"
 )
 

@@ -1,0 +1,61 @@
+envs:
+  node:
+    env:
+      name: faastest-cpustress
+      image: fission/node-env
+
+    functions:
+      cpustress-node-128mb:
+        name: cpustress-node-128mb
+        handler: cpustress.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 128
+        maxmemory: 128
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      cpustress-node-256mb:
+        name: cpustress-node-256mb
+        handler: cpustress.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 256
+        maxmemory: 256
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      cpustress-node-512mb:
+        name: cpustress-node-512mb
+        handler: cpustress.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 512
+        maxmemory: 512
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      cpustress-node-1024mb:
+        name: cpustress-node-1024mb
+        handler: cpustress.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 1024
+        maxmemory: 1024
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      cpustress-node-2048mb:
+        name: cpustress-node-2048mb
+        handler: cpustress.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 2048
+        maxmemory: 2048
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80

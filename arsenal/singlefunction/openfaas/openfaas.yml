@@ -1,0 +1,12 @@
+version: 1.0
+provider:
+  name: openfaas
+functions:
+  sleep-node12-128mb:
+    lang: node12
+    handler: ./sleep
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50

@@ -11,6 +11,7 @@ package:
 
 provider:
   name: aws
+  region: eu-central-1
   project: faastest
   stackName: sleepfunc-${opt:suffix}
   stage: dev
@@ -58,15 +59,15 @@ functions:
     handler: nodejs/handler.hello
     memorySize: 1024
 
-  node12-memory-1536:
+  node12-memory-2048:
     package:
       include:
         - nodejs/**
-    name: sleep-node12-1536mb-${opt:suffix}
-    description: sleep function 1536mb
+    name: sleep-node12-2048mb-${opt:suffix}
+    description: sleep function 2048mb
     runtime: nodejs12.x
     handler: nodejs/handler.hello
-    memorySize: 1536
+    memorySize: 2048
 
   java8-memory-128:
     package:
@@ -104,14 +105,14 @@ functions:
     handler: com.serverless.Handler
     memorySize: 1024
 
-  java8-memory-1536:
+  java8-memory-2048:
     package:
       artifact: java8/target/hello-dev.jar
-    name: sleep-java8-1536mb-${opt:suffix}
-    description: sleep function 1536mb
+    name: sleep-java8-2048mb-${opt:suffix}
+    description: sleep function 2048mb
     runtime: java8
     handler: com.serverless.Handler
-    memorySize: 1536
+    memorySize: 2048
 
   java11-memory-128:
     package:
@@ -149,14 +150,14 @@ functions:
     handler: com.serverless.Handler
     memorySize: 1024
 
-  java11-memory-1536:
+  java11-memory-2048:
     package:
       artifact: java11/target/hello-dev.jar
-    name: sleep-java11-1536mb
-    description: sleep function 1536mb
+    name: sleep-java11-2048mb
+    description: sleep function 2048mb
     runtime: java11
     handler: com.serverless.Handler
-    memorySize: 1536
+    memorySize: 2048
 
   dotnetcore21-memory-128:
     package:
@@ -194,14 +195,14 @@ functions:
     handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
     memorySize: 1024
 
-  dotnetcore21-memory-1536:
+  dotnetcore21-memory-2048:
     package:
       artifact: csharp/deploy.zip
-    name: sleep-dotnetcore21-1536mb-${opt:suffix}
-    description: sleep function 1536mb
+    name: sleep-dotnetcore21-2048mb-${opt:suffix}
+    description: sleep function 2048mb
     runtime: dotnetcore2.1
     handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
-    memorySize: 1536
+    memorySize: 2048
 
   python38-memory-128:
     package:
@@ -243,15 +244,15 @@ functions:
     handler: python/handler.hello
     memorySize: 1024
 
-  python38-memory-1536:
+  python38-memory-2048:
     package:
       include:
         - python/**
-    name: sleep-python38-1536mb
-    description: sleep function 1536mb
+    name: sleep-python38-2048mb
+    description: sleep function 2048mb
     runtime: python3.8
     handler: python/handler.hello
-    memorySize: 1536
+    memorySize: 2048
 
   python37-memory-128:
     package:
@@ -293,15 +294,15 @@ functions:
     handler: python/handler.hello
     memorySize: 1024
 
-  python37-memory-1536:
+  python37-memory-2048:
     package:
       include:
         - python/**
-    name: sleep-python37-1536mb-${opt:suffix}
-    description: sleep function 1536mb
+    name: sleep-python37-2048mb-${opt:suffix}
+    description: sleep function 2048mb
     runtime: python3.7
     handler: python/handler.hello
-    memorySize: 1536
+    memorySize: 2048
 
   golang-memory-128:
     package:
@@ -343,12 +344,12 @@ functions:
     handler: golang/bin/hello
     memorySize: 1024
 
-  golang-memory-1536:
+  golang-memory-2048:
     package:
       include:
         - golang/**
-    name: sleep-golang-1536mb-${opt:suffix}
-    description: sleep function 1536mb
+    name: sleep-golang-2048mb-${opt:suffix}
+    description: sleep function 2048mb
     runtime: go1.x
     handler: golang/bin/hello
-    memorySize: 1536
+    memorySize: 2048

@@ -2,20 +2,22 @@ package aws
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/aws/aws-sdk-go/aws/ec2metadata"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/aws/signer/v4"
-	"github.com/nuweba/faasbenchmark/stack"
-	"github.com/nuweba/httpbench/syncedtrace"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"path"
 	"time"
+
+	"github.com/aws/aws-sdk-go/aws/ec2metadata"
+	"github.com/aws/aws-sdk-go/aws/session"
+	v4 "github.com/aws/aws-sdk-go/aws/signer/v4"
 	"github.com/golang/gddo/httputil/header"
+	"github.com/nuweba/faasbenchmark/stack"
+	"github.com/nropatas/httpbench/syncedtrace"
 )
 
 type Aws struct {
@@ -38,13 +40,17 @@ func New() (*Aws, error) {
 	//if err != nil {
 	//	return nil, err
 	//}
-	region := "us-east-1"
+	region := "eu-central-1"
 
 	return &Aws{session: ses, region: region, name: name}, nil
 }
 
 func (aws *Aws) Name() string {
 	return aws.name
+}
+
+func (aws *Aws) TLSConfig() *tls.Config {
+	return nil
 }
 
 func getRegion(session *session.Session) (string, error) {
@@ -112,7 +118,7 @@ func (aws *Aws) buildLambdaInvokeReq(funcName string, qParams *url.Values, heade
 	return req, nil
 }
 
-func (aws *Aws) NewFunctionRequest(stack stack.Stack, function stack.Function, qParams *url.Values, headers *http.Header, body *[]byte) (func(uniqueId string) (*http.Request, error)) {
+func (aws *Aws) NewFunctionRequest(stack stack.Stack, function stack.Function, qParams *url.Values, headers *http.Header, body *[]byte) func(uniqueId string) (*http.Request, error) {
 	return func(uniqueId string) (*http.Request, error) {
 		localHeaders := header.Copy(*headers)
 		localHeaders.Add("Faastest-id", uniqueId)

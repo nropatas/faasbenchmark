@@ -2,14 +2,16 @@ package tests
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
-	"github.com/nuweba/faasbenchmark/config"
-	httpbenchReport "github.com/nuweba/faasbenchmark/report/generate/httpbench"
-	"github.com/nuweba/httpbench"
 	"net/http"
 	"net/url"
 	"sync"
 	"time"
+
+	"github.com/nropatas/httpbench"
+	"github.com/nuweba/faasbenchmark/config"
+	httpbenchReport "github.com/nuweba/faasbenchmark/report/generate/httpbench"
 )
 
 const (
@@ -184,6 +186,14 @@ func increasingLoad(test *config.Test, httpConfig config.Http) {
 	}
 	httpConfig.Headers = &headers
 	httpConfig.Body = &body
+
+	if test.Config.HasCustomHttpConfig() {
+		err := json.Unmarshal(*test.Config.CustomHttpConfig, &httpConfig)
+		if err != nil {
+			fmt.Println("Failed to read custom HTTP config:", err.Error())
+		}
+	}
+
 	for _, function := range test.Stack.ListFunctions() {
 		hfConf, err := test.NewFunction(&httpConfig, function)
 
@@ -197,8 +207,9 @@ func increasingLoad(test *config.Test, httpConfig config.Http) {
 
 func executeTest(hfConf *config.HttpFunction) {
 	newReq := hfConf.Test.Config.Provider.NewFunctionRequest(hfConf.Test.Stack, hfConf.Function, hfConf.HttpConfig.QueryParams, hfConf.HttpConfig.Headers, hfConf.HttpConfig.Body)
+	tlsConfig := hfConf.Test.Config.Provider.TLSConfig()
 	wg := &sync.WaitGroup{}
-	trace := httpbench.New(newReq, hfConf.HttpConfig.Hook)
+	trace := httpbench.New(newReq, hfConf.HttpConfig.Hook, tlsConfig)
 	wg.Add(1)
 	go func() {
 		defer wg.Done()

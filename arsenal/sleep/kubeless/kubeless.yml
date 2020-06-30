@@ -1,0 +1,202 @@
+hostname: example.com
+
+functions:
+  sleep-node12-128mb:
+    name: sleep-node12-128mb
+    description: sleep function 128mb
+    runtime: nodejs12
+    file: handler.js
+    dependencies: package.json
+    handler: handler.sleep
+    path: sleep-node12-128mb
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-256mb:
+    name: sleep-node12-256mb
+    description: sleep function 256mb
+    runtime: nodejs12
+    file: handler.js
+    dependencies: package.json
+    handler: handler.sleep
+    path: sleep-node12-256mb
+    cpu: 200m
+    memory: 256Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-512mb:
+    name: sleep-node12-512mb
+    description: sleep function 512mb
+    runtime: nodejs12
+    file: handler.js
+    dependencies: package.json
+    handler: handler.sleep
+    path: sleep-node12-512mb
+    cpu: 200m
+    memory: 512Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+  
+  sleep-node12-1024mb:
+    name: sleep-node12-1024mb
+    description: sleep function 1024mb
+    runtime: nodejs12
+    file: handler.js
+    dependencies: package.json
+    handler: handler.sleep
+    path: sleep-node12-1024mb
+    cpu: 200m
+    memory: 1024Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-node12-2048mb:
+    name: sleep-node12-2048mb
+    description: sleep function 2048mb
+    runtime: nodejs12
+    file: handler.js
+    dependencies: package.json
+    handler: handler.sleep
+    path: sleep-node12-2048mb
+    cpu: 200m
+    memory: 2048Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-python36-128mb:
+    name: sleep-python36-128mb
+    description: sleep function 128mb
+    runtime: python3.6
+    file: handler.py
+    handler: handler.sleep
+    path: sleep-python36-128mb
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-python36-256mb:
+    name: sleep-python36-256mb
+    description: sleep function 256mb
+    runtime: python3.6
+    file: handler.py
+    handler: handler.sleep
+    path: sleep-python36-256mb
+    cpu: 200m
+    memory: 256Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-python36-512mb:
+    name: sleep-python36-512mb
+    description: sleep function 512mb
+    runtime: python3.6
+    file: handler.py
+    handler: handler.sleep
+    path: sleep-python36-512mb
+    cpu: 200m
+    memory: 512Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-python36-1024mb:
+    name: sleep-python36-1024mb
+    description: sleep function 1024mb
+    runtime: python3.6
+    file: handler.py
+    handler: handler.sleep
+    path: sleep-python36-1024mb
+    cpu: 200m
+    memory: 1024Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-python36-2048mb:
+    name: sleep-python36-2048mb
+    description: sleep function 2048mb
+    runtime: python3.6
+    file: handler.py
+    handler: handler.sleep
+    path: sleep-python36-2048mb
+    cpu: 200m
+    memory: 2048Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-go-128mb:
+    name: sleep-go-128mb
+    description: sleep function 128mb
+    runtime: go1.10
+    file: handler.go
+    handler: handler.Sleep
+    path: sleep-go-128mb
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-go-256mb:
+    name: sleep-go-256mb
+    description: sleep function 256mb
+    runtime: go1.10
+    file: handler.go
+    handler: handler.Sleep
+    path: sleep-go-256mb
+    cpu: 200m
+    memory: 256Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-go-512mb:
+    name: sleep-go-512mb
+    description: sleep function 512mb
+    runtime: go1.10
+    file: handler.go
+    handler: handler.Sleep
+    path: sleep-go-512mb
+    cpu: 200m
+    memory: 512Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-go-1024mb:
+    name: sleep-go-1024mb
+    description: sleep function 1024mb
+    runtime: go1.10
+    file: handler.go
+    handler: handler.Sleep
+    path: sleep-go-1024mb
+    cpu: 200m
+    memory: 1024Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  sleep-go-2048mb:
+    name: sleep-go-2048mb
+    description: sleep function 2048mb
+    runtime: go1.10
+    file: handler.go
+    handler: handler.Sleep
+    path: sleep-go-2048mb
+    cpu: 200m
+    memory: 2048Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50

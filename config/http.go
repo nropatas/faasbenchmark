@@ -2,11 +2,12 @@ package config
 
 import (
 	"encoding/json"
-	"github.com/nuweba/httpbench"
-	"github.com/nuweba/httpbench/syncedtrace"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/nropatas/httpbench"
+	"github.com/nropatas/httpbench/syncedtrace"
 )
 
 type Http struct {

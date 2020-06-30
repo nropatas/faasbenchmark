@@ -1,0 +1,19 @@
+service: singlefunction
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  sleep-node12-128mb:
+    name: sleep-node12-128mb
+    description: sleep function 128mb
+    runtime: nodejs:12
+    handler: handler.sleep
+    memory: 128
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

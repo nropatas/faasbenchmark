@@ -1,22 +1,24 @@
 package config
 
 import (
+	"io"
+
+	"github.com/nropatas/httpbench/engine"
 	"github.com/nuweba/faasbenchmark/provider"
 	"github.com/nuweba/faasbenchmark/report"
-	"github.com/nuweba/httpbench/engine"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"io"
 )
 
 type Global struct {
-	Provider  provider.FaasProvider
-	Stacks    *Stacks
-	report    report.Top
-	resultDir string
-	Logger    *zap.Logger
-	logCh     chan *engine.TraceResult
-	Debug     bool
+	Provider         provider.FaasProvider
+	Stacks           *Stacks
+	report           report.Top
+	resultDir        string
+	Logger           *zap.Logger
+	logCh            chan *engine.TraceResult
+	Debug            bool
+	CustomHttpConfig *[]byte
 }
 
 func newLogger(writer io.Writer, debug bool) *zap.Logger {
@@ -34,7 +36,7 @@ func newLogger(writer io.Writer, debug bool) *zap.Logger {
 
 }
 
-func NewGlobalConfig(provider provider.FaasProvider, arsenalPath string, report report.Top, debug bool) (*Global, error) {
+func NewGlobalConfig(provider provider.FaasProvider, arsenalPath string, report report.Top, debug bool, customHttpConfig *[]byte) (*Global, error) {
 
 	loggerW, err := report.LogWriter()
 	if err != nil {
@@ -53,5 +55,9 @@ func NewGlobalConfig(provider provider.FaasProvider, arsenalPath string, report 
 	}
 
 	l.Debug("stacks loaded", zap.String("arsenal", arsenalPath))
-	return &Global{report: report, Logger: l, Provider: provider, Stacks: stacks, Debug: debug}, nil
+	return &Global{report: report, Logger: l, Provider: provider, Stacks: stacks, Debug: debug, CustomHttpConfig: customHttpConfig}, nil
+}
+
+func (g *Global) HasCustomHttpConfig() bool {
+	return g.CustomHttpConfig != nil && len(*g.CustomHttpConfig) > 0
 }

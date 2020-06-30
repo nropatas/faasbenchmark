@@ -1,0 +1,43 @@
+service: memstress
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  memstress-node12-128mb:
+    name: memstress-node12-128mb
+    description: memstress function 128mb
+    runtime: nodejs:12
+    handler: handler.memstress
+    memory: 128
+    parameters:
+      function_memory_size: "128"
+    annotations:
+      web-export: true
+
+  memstress-node12-256mb:
+    name: memstress-node12-256mb
+    description: memstress function 256mb
+    runtime: nodejs:12
+    handler: handler.memstress
+    memory: 256
+    parameters:
+      function_memory_size: "256"
+    annotations:
+      web-export: true
+
+  memstress-node12-512mb:
+    name: memstress-node12-512mb
+    description: memstress function 512mb
+    runtime: nodejs:12
+    handler: handler.memstress
+    memory: 512
+    parameters:
+      function_memory_size: "512"
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

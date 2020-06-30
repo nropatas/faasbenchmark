@@ -2,19 +2,21 @@ package google
 
 import (
 	"bytes"
+	"crypto/tls"
 	"fmt"
-	"github.com/aws/aws-sdk-go/aws/ec2metadata"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/golang/gddo/httputil/header"
-	"github.com/nuweba/faasbenchmark/stack"
-	"github.com/nuweba/httpbench/syncedtrace"
-	"github.com/pkg/errors"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"path"
 	"path/filepath"
 	"runtime"
+
+	"github.com/aws/aws-sdk-go/aws/ec2metadata"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/golang/gddo/httputil/header"
+	"github.com/nuweba/faasbenchmark/stack"
+	"github.com/nropatas/httpbench/syncedtrace"
+	"github.com/pkg/errors"
 )
 
 type Google struct {
@@ -55,6 +57,10 @@ func (google *Google) Name() string {
 	return google.name
 }
 
+func (google *Google) TLSConfig() *tls.Config {
+	return nil
+}
+
 func getRegion(session *session.Session) (string, error) {
 	metaClient := ec2metadata.New(session)
 	region, err := metaClient.Region()
@@ -90,11 +96,11 @@ func (google *Google) buildGFuncInvokeReq(funcName string, projectId string, qPa
 	return req, nil
 }
 
-func (google *Google) NewFunctionRequest(stack stack.Stack, function stack.Function, qParams *url.Values, headers *http.Header, body *[]byte) (func(uniqueId string) (*http.Request, error)) {
+func (google *Google) NewFunctionRequest(stack stack.Stack, function stack.Function, qParams *url.Values, headers *http.Header, body *[]byte) func(uniqueId string) (*http.Request, error) {
 	return func(uniqueId string) (*http.Request, error) {
 		localHeaders := header.Copy(*headers)
 		localHeaders.Add("Faastest-id", uniqueId)
-		return google.buildGFuncInvokeReq(function.Handler(),stack.Project(), qParams, &localHeaders, body)
+		return google.buildGFuncInvokeReq(function.Handler(), stack.Project(), qParams, &localHeaders, body)
 	}
 }
 

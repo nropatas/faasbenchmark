@@ -1,0 +1,61 @@
+envs:
+  node:
+    env:
+      name: faastest-largecode
+      image: fission/node-env
+
+    functions:
+      largecode-node-128mb:
+        name: largecode-node-128mb
+        handler: largecode.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 128
+        maxmemory: 128
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      largecode-node-256mb:
+        name: largecode-node-256mb
+        handler: largecode.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 256
+        maxmemory: 256
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      largecode-node-512mb:
+        name: largecode-node-512mb
+        handler: largecode.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 512
+        maxmemory: 512
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      largecode-node-1024mb:
+        name: largecode-node-1024mb
+        handler: largecode.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 1024
+        maxmemory: 1024
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80
+
+      largecode-node-2048mb:
+        name: largecode-node-2048mb
+        handler: largecode.js
+        mincpu: 200
+        maxcpu: 200
+        minmemory: 2048
+        maxmemory: 2048
+        minscale: 1
+        maxscale: 50
+        targetcpu: 50 # Default: 80

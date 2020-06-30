@@ -1,6 +1,6 @@
 {
   "name": "providerstorage",
-  "location": "eastus",
+  "location": "westeurope",
   "project": "faastest",
   "stage": "dev"
 }

@@ -2,6 +2,7 @@ service: memstress-${opt:suffix}
 
 provider:
   name: aws
+  region: eu-central-1
   stackName: memstress-${opt:suffix}
   project: faastest
   stage: dev
@@ -37,9 +38,9 @@ functions:
     handler: nodejs/handler.handler
     memorySize: 1024
 
-  node12-memorystress-1536:
-    name: memstress-node12-1536mb-${opt:suffix}
-    description: memory intensive function 1536mb
+  node12-memorystress-2048:
+    name: memstress-node12-2048mb-${opt:suffix}
+    description: memory intensive function 2048mb
     runtime: nodejs12.x
     handler: nodejs/handler.handler
-    memorySize: 1536
+    memorySize: 2048

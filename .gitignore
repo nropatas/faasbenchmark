@@ -5,3 +5,9 @@ results_*
 # Serverless directories
 .serverless
 *.swp
+
+# Node.js
+node_modules
+jspm_packages
+
+kubeconfigs/*

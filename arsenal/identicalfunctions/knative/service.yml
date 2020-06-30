@@ -1,0 +1,169 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-1
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-2
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-3
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-4
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-5
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-6
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-7
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-8
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-9
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sleep-node13-128mb-10
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+        - image: docker.io/nropatas/faastest-sleep-node13
+          resources:
+            limits:
+              memory: "128Mi"

@@ -1,0 +1,44 @@
+version: 1.0
+provider:
+  name: openfaas
+functions:
+  iostress-node12-128mb:
+    lang: node12
+    handler: ./iostress
+    image: nropatas/faastest-iostress-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+  iostress-node12-256mb:
+    lang: node12
+    handler: ./iostress
+    image: nropatas/faastest-iostress-openfaas-node12
+    limits:
+      memory: 256Mi
+    labels:
+      com.openfaas.scale.max: 50
+  iostress-node12-512mb:
+    lang: node12
+    handler: ./iostress
+    image: nropatas/faastest-iostress-openfaas-node12
+    limits:
+      memory: 512Mi
+    labels:
+      com.openfaas.scale.max: 50
+  iostress-node12-1024mb:
+    lang: node12
+    handler: ./iostress
+    image: nropatas/faastest-iostress-openfaas-node12
+    limits:
+      memory: 1024Mi
+    labels:
+      com.openfaas.scale.max: 50
+  iostress-node12-2048mb:
+    lang: node12
+    handler: ./iostress
+    image: nropatas/faastest-iostress-openfaas-node12
+    limits:
+      memory: 2048Mi
+    labels:
+      com.openfaas.scale.max: 50

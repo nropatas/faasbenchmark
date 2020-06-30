@@ -2,6 +2,7 @@ service: logging-${opt:suffix}
 
 provider:
   name: aws
+  region: eu-central-1
   stackName: logging-${opt:suffix}
   project: faastest
   stage: dev
@@ -37,9 +38,9 @@ functions:
     handler: nodejs/handler.handler
     memorySize: 1024
 
-  node12-memory-1536:
-    name: logging-node12-1536mb-${opt:suffix}
-    description: io intensive function 1536mb
+  node12-memory-2048:
+    name: logging-node12-2048mb-${opt:suffix}
+    description: io intensive function 2048mb
     runtime: nodejs12.x
     handler: nodejs/handler.handler
-    memorySize: 1536
+    memorySize: 2048

@@ -2,6 +2,7 @@ service: largeresponse-${opt:suffix}
 
 provider:
   name: aws
+  region: eu-central-1
   project: faastest
   stackName: largeresponse-${opt:suffix}
   stage: dev
@@ -37,9 +38,9 @@ functions:
     handler: nodejs/handler.handler
     memorySize: 1024
 
-  node12-memory-1536:
-    name: largeresponse-node12-1536mb-${opt:suffix}
-    description: function returning a large response 1536mb
+  node12-memory-2048:
+    name: largeresponse-node12-2048mb-${opt:suffix}
+    description: function returning a large response 2048mb
     runtime: nodejs12.x
     handler: nodejs/handler.handler
-    memorySize: 1536
+    memorySize: 2048

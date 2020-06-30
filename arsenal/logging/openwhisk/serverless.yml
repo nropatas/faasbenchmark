@@ -1,0 +1,37 @@
+service: logging
+provider:
+  name: openwhisk
+  project: faastest
+  stage: dev
+  ignore_certs: true
+
+functions:
+  logging-node12-128mb:
+    name: logging-node12-128mb
+    description: logging function 128mb
+    runtime: nodejs:12
+    handler: handler.logging
+    memory: 128
+    annotations:
+      web-export: true
+
+  logging-node12-256mb:
+    name: logging-node12-256mb
+    description: logging function 256mb
+    runtime: nodejs:12
+    handler: handler.logging
+    memory: 256
+    annotations:
+      web-export: true
+
+  logging-node12-512mb:
+    name: logging-node12-512mb
+    description: logging function 512mb
+    runtime: nodejs:12
+    handler: handler.logging
+    memory: 512
+    annotations:
+      web-export: true
+
+plugins:
+  - serverless-openwhisk

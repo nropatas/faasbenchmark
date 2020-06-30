@@ -2,17 +2,19 @@ package azure
 
 import (
 	"bytes"
-	"github.com/golang/gddo/httputil/header"
-	azurestack "github.com/nuweba/azure-stack"
-	"github.com/nuweba/faasbenchmark/stack"
-	"github.com/nuweba/httpbench/syncedtrace"
+	"crypto/tls"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+
+	"github.com/golang/gddo/httputil/header"
+	azurestack "github.com/nuweba/azure-stack"
+	"github.com/nuweba/faasbenchmark/stack"
+	"github.com/nropatas/httpbench/syncedtrace"
 )
 
 type Azure struct {
-	name   string
+	name string
 }
 
 func New() (*Azure, error) {
@@ -23,6 +25,10 @@ func New() (*Azure, error) {
 
 func (azure *Azure) Name() string {
 	return azure.name
+}
+
+func (azure *Azure) TLSConfig() *tls.Config {
+	return nil
 }
 
 func (azure *Azure) buildFuncInvokeReq(function *azurestack.AzureFunction, qParams *url.Values, headers *http.Header, body *[]byte) (*http.Request, error) {

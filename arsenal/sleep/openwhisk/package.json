@@ -1,0 +1,12 @@
+{
+  "name": "sleepfunc",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "serverless",
+    "openwhisk"
+  ],
+  "devDependencies": {
+    "serverless-openwhisk": ">=0.13.0"
+  }
+}

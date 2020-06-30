@@ -2,6 +2,7 @@ service: singlefunction-${opt:suffix}
 
 provider:
   name: aws
+  region: eu-central-1
   stackName: singlefunction-${opt:suffix}
   project: faastest
   stage: dev

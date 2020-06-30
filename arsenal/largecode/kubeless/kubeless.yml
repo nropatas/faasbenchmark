@@ -1,0 +1,64 @@
+hostname: example.com
+file: handler.js
+dependencies: package.json
+
+functions:
+  largecode-node12-128mb:
+    name: largecode-node12-128mb
+    description: largecode function 128mb
+    runtime: nodejs12
+    handler: handler.largecode
+    path: largecode-node12-128mb
+    cpu: 200m
+    memory: 128Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  largecode-node12-256mb:
+    name: largecode-node12-256mb
+    description: largecode function 256mb
+    runtime: nodejs12
+    handler: handler.largecode
+    path: largecode-node12-256mb
+    cpu: 200m
+    memory: 256Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  largecode-node12-512mb:
+    name: largecode-node12-512mb
+    description: largecode function 512mb
+    runtime: nodejs12
+    handler: handler.largecode
+    path: largecode-node12-512mb
+    cpu: 200m
+    memory: 512Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  largecode-node12-1024mb:
+    name: largecode-node12-1024mb
+    description: largecode function 1024mb
+    runtime: nodejs12
+    handler: handler.largecode
+    path: largecode-node12-1024mb
+    cpu: 200m
+    memory: 1024Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50
+
+  largecode-node12-2048mb:
+    name: largecode-node12-2048mb
+    description: largecode function 2048mb
+    runtime: nodejs12
+    handler: handler.largecode
+    path: largecode-node12-2048mb
+    cpu: 200m
+    memory: 2048Mi
+    min-scale: 1
+    max-scale: 50
+    target-cpu: 50

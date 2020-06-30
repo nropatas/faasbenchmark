@@ -2,6 +2,7 @@ service: identicalfunctions-${opt:suffix}
 
 provider:
   name: aws
+  region: eu-central-1
   stackName: identicalfunctions-${opt:suffix}
   project: faastest
   stage: dev

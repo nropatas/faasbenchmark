@@ -1,0 +1,138 @@
+version: 1.0
+provider:
+  name: openfaas
+functions:
+  sleep-node12-128mb:
+    lang: node12
+    handler: ./sleep-node
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-256mb:
+    lang: node12
+    handler: ./sleep-node
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 256Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-512mb:
+    lang: node12
+    handler: ./sleep-node
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 512Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-1024mb:
+    lang: node12
+    handler: ./sleep-node
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 1024Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-node12-2048mb:
+    lang: node12
+    handler: ./sleep-node
+    image: nropatas/faastest-sleep-openfaas-node12
+    limits:
+      memory: 2048Mi
+    labels:
+      com.openfaas.scale.max: 50
+    
+  sleep-python3-128mb:
+    lang: python3-flask
+    handler: ./sleep-py
+    image: nropatas/faastest-sleep-openfaas-python3
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-python3-256mb:
+    lang: python3-flask
+    handler: ./sleep-py
+    image: nropatas/faastest-sleep-openfaas-python3
+    limits:
+      memory: 256Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-python3-512mb:
+    lang: python3-flask
+    handler: ./sleep-py
+    image: nropatas/faastest-sleep-openfaas-python3
+    limits:
+      memory: 512Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-python3-1024mb:
+    lang: python3-flask
+    handler: ./sleep-py
+    image: nropatas/faastest-sleep-openfaas-python3
+    limits:
+      memory: 1024Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-python3-2048mb:
+    lang: python3-flask
+    handler: ./sleep-py
+    image: nropatas/faastest-sleep-openfaas-python3
+    limits:
+      memory: 2048Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-go-128mb:
+    lang: golang-middleware
+    handler: ./sleep-go
+    image: nropatas/faastest-sleep-openfaas-go
+    limits:
+      memory: 128Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-go-256mb:
+    lang: golang-middleware
+    handler: ./sleep-go
+    image: nropatas/faastest-sleep-openfaas-go
+    limits:
+      memory: 256Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-go-512mb:
+    lang: golang-middleware
+    handler: ./sleep-go
+    image: nropatas/faastest-sleep-openfaas-go
+    limits:
+      memory: 512Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-go-1024mb:
+    lang: golang-middleware
+    handler: ./sleep-go
+    image: nropatas/faastest-sleep-openfaas-go
+    limits:
+      memory: 1024Mi
+    labels:
+      com.openfaas.scale.max: 50
+
+  sleep-go-2048mb:
+    lang: golang-middleware
+    handler: ./sleep-go
+    image: nropatas/faastest-sleep-openfaas-go
+    limits:
+      memory: 2048Mi
+    labels:
+      com.openfaas.scale.max: 50

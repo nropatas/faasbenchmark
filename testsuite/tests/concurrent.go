@@ -1,13 +1,15 @@
 package tests
 
 import (
+	"encoding/json"
 	"fmt"
+	"net/http"
+	"sync"
+
+	"github.com/nropatas/httpbench"
 	"github.com/nuweba/faasbenchmark/config"
 	httpbenchReport "github.com/nuweba/faasbenchmark/report/generate/httpbench"
 	"github.com/nuweba/faasbenchmark/stack"
-	"github.com/nuweba/httpbench"
-	"net/http"
-	"sync"
 )
 
 /*
@@ -28,7 +30,7 @@ func init() {
 	Tests.Register(Test{Id: "ConcurrentIncreasingLoadWindowsLvl3", Fn: ConcurrentIncreasingLoadLvl3, RequiredStack: "identicalfunctionswindows", Description: "Test concurrent load - azure functions on windows"})
 }
 
-func ConcurrentIncreasingLoadLvl1(test *config.Test){
+func ConcurrentIncreasingLoadLvl1(test *config.Test) {
 	runtime := shortRuntime
 	headers := http.Header{}
 	body := []byte("")
@@ -45,7 +47,7 @@ func ConcurrentIncreasingLoadLvl1(test *config.Test){
 	testConcurrently(test, httpConfig)
 }
 
-func ConcurrentIncreasingLoadLvl2(test *config.Test){
+func ConcurrentIncreasingLoadLvl2(test *config.Test) {
 	runtime := mediumRuntime
 	headers := http.Header{}
 	body := []byte("")
@@ -62,7 +64,7 @@ func ConcurrentIncreasingLoadLvl2(test *config.Test){
 	testConcurrently(test, httpConfig)
 }
 
-func ConcurrentIncreasingLoadLvl3(test *config.Test){
+func ConcurrentIncreasingLoadLvl3(test *config.Test) {
 	runtime := longRuntime
 	headers := http.Header{}
 	body := []byte("")
@@ -80,6 +82,13 @@ func ConcurrentIncreasingLoadLvl3(test *config.Test){
 }
 
 func testConcurrently(test *config.Test, httpConfig *config.Http) {
+	if test.Config.HasCustomHttpConfig() {
+		err := json.Unmarshal(*test.Config.CustomHttpConfig, httpConfig)
+		if err != nil {
+			fmt.Println("Failed to read custom HTTP config:", err.Error())
+		}
+	}
+
 	var m sync.Mutex
 	c := sync.NewCond(&m)
 
@@ -101,7 +110,8 @@ func testConcurrently(test *config.Test, httpConfig *config.Http) {
 			}
 
 			newReq := test.Config.Provider.NewFunctionRequest(hfConf.Test.Stack, hfConf.Function, hfConf.HttpConfig.QueryParams, hfConf.HttpConfig.Headers, hfConf.HttpConfig.Body)
-			trace := httpbench.New(newReq, hfConf.HttpConfig.Hook)
+			tlsConfig := test.Config.Provider.TLSConfig()
+			trace := httpbench.New(newReq, hfConf.HttpConfig.Hook, tlsConfig)
 
 			wg.Add(1)
 			go func() {
@@ -128,4 +138,3 @@ func testConcurrently(test *config.Test, httpConfig *config.Http) {
 
 	end.Wait()
 }
-
